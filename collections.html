@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOSTRA</title>
+    <link rel="icon" type="image/png" href="logo/Screenshot 2026-03-14 092818.png">
+    <link rel="stylesheet" href="coll.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="mobile_sidebar" id="mobileSidebar">
+        <div class="sidebar_header">
+            <h2>Nostra</h2>
+            <span class="close_sidebar" id="closeSidebar"><i class="fa-solid fa-x"></i></span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#new-arrival">New Arrival</a></li>
+            <li><a href="index.html#most-wanted">Most Wanted</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="sidebar_overlay" id="sidebarOverlay"></div>
+    <!-- Offer Tag -->
+    <div class="offer_tag">
+        <h3>Sign Up and <strong>GET 20% OFF</strong> for your first Order</h3>
+        <img src="images/cancel.png" alt="close" id="closeOffer">
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Nostra</h1>
+        <div class="navlist">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#new-arrival">New Arrival</a></li>
+                <li><a href="index.html#most-wanted">Most Wanted</a></li>
+                <li><a href="collections.html">Collections</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <h4 id="menuToggle"><i class="fa-solid fa-bars"></i></h4>
+        </div>
+    </div>
+
+    <section class="shop">
+
+        <!-- Sidebar Filters -->
+        <div class="sidebar">
+
+            <h2>Gender</h2>
+            <label><input type="checkbox" class="filter-check" data-category="Men-shirt"> Shirt</label>
+            <label><input type="checkbox" class="filter-check" data-category="women-traditional"> Half Shirt</label>
+            <label><input type="checkbox" class="filter-check" data-category="women-partywear"> Pants</label>
+         
+             <h2>Colors</h2>
+            <label><input type="checkbox" class="filter-check" data-category="Black"> Black</label>
+            <label><input type="checkbox" class="filter-check" data-category="White"> White</label>
+            <label><input type="checkbox" class="filter-check" data-category="Red"> Red</label>
+            <label><input type="checkbox" class="filter-check" data-category="Blue"> Blue</label>
+
+            <h2>Arrivals</h2>
+            <label><input type="checkbox" class="filter-check" data-category="new"> New</label>
+            <label><input type="checkbox" class="filter-check" data-category="old"> Old</label>
+ 
+        </div>
+
+        <!-- Products -->
+        <div class="products">
+
+            <div class="search_bar">
+                <input type="text" placeholder="Search..." id="searchInput">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="product_grid" id="productGrid">
+
+                <!-- Shirts (Full Sleeve) - marked as "new" -->
+                <div class="product" data-category="shirt" data-arrival="new">
+                    <img src="collections/1.jpg" alt="Classic Linen Shirt">
+                    <h3>Classic Linen Full Sleeve Shirt</h3>
+                    <p>₹349</p>
+                </div>
+
+                <div class="product" data-category="shirt" data-arrival="new">
+                    <img src="collections/2.jpg" alt="Urban Casual Shirt">
+                    <h3>Urban Casual Blue Shirt</h3>
+                    <p>₹420</p>
+                </div>
+
+                <div class="product" data-category="shirt" data-arrival="old">
+                    <img src="collections/3.jpg" alt="Modern Cotton Shirt">
+                    <h3>Modern Cotton Full Sleeve Shirt</h3>
+                    <p>₹389</p>
+                </div>
+
+                <div class="product" data-category="shirt" data-arrival="old">
+                    <img src="collections/4.jpg" alt="Premium Office Shirt">
+                    <h3>Premium Casual Office Shirt</h3>
+                    <p>₹450</p>
+                </div>
+
+                <!-- Half Shirts -->
+                <div class="product" data-category="half-shirt" data-arrival="new">
+                    <img src="collections/5.jpg" alt="Tropical Half Shirt">
+                    <h3>Tropical Summer Half Shirt</h3>
+                    <p>₹299</p>
+                </div>
+
+                <div class="product" data-category="half-shirt" data-arrival="new">
+                    <img src="collections/6.jpg" alt="Floral Beach Shirt">
+                    <h3>Floral Beach Half Shirt</h3>
+                    <p>₹320</p>
+                </div>
+
+                <div class="product" data-category="half-shirt" data-arrival="old">
+                    <img src="collections/7.jpg" alt="Casual Printed Shirt">
+                    <h3>Casual Printed Summer Shirt</h3>
+                    <p>₹310</p>
+                </div>
+
+                <div class="product" data-category="half-shirt" data-arrival="old">
+                    <img src="collections/8.jpg" alt="Lightweight Holiday Shirt">
+                    <h3>Lightweight Holiday Shirt</h3>
+                    <p>₹330</p>
+                </div>
+
+
+                <!-- Coats -->
+                <div class="product" data-category="coat" data-arrival="new">
+                    <img src="collections/13.jpg" alt="Classic Trench Coat">
+                    <h3>Womens wear</h3>
+                    <p>₹1299</p>
+                </div>
+
+                <div class="product" data-category="coat" data-arrival="new">
+                    <img src="collections/14.jpg" alt="Premium Winter Coat">
+                    <h3>Premium Womens wear</h3>
+                    <p>₹1499</p>
+                </div>
+
+                <div class="product" data-category="coat" data-arrival="old">
+                    <img src="collections/15.jpg" alt="Modern Overcoat">
+                    <h3>Modern Womens wear</h3>
+                    <p>₹1399</p>
+                </div>
+
+                <div class="product" data-category="coat" data-arrival="old">
+                    <img src="collections/165.jpg" alt="Elegant Long Coat">
+                    <h3>Elegant Womens wear</h3>
+                    <p>₹1599</p>
+                </div>
+
+                <!-- Half Pants / Shorts -->
+               
+
+                <div class="product" data-category="half-pants" data-arrival="new">
+                    <img src="collections/23.jpg" alt="Beach Cotton Shorts">
+                    <h3>Beach Style Womens wear</h3>
+                    <p>₹279</p>
+                </div>
+
+                <div class="product" data-category="half-pants" data-arrival="old">
+                    <img src="collections/24.jpg" alt="Comfort Fit Shorts">
+                    <h3>Comfort Fit Womens wear</h3>
+                    <p>₹249</p>
+                </div>
+
+                <div class="product" data-category="half-pants" data-arrival="old">
+                    <img src="collections/25.jpg" alt="Travel Shorts">
+                    <h3>Lightweight Womens wear</h3>
+                    <p>₹289</p>
+                </div>
+
+            </div>
+
+            <!-- No results message -->
+            <div class="no_results" id="noResults" style="display:none;">
+                <i class="fa-solid fa-face-frown"></i>
+                <p>No products found. Try a different filter!</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h1>Join our News Letter</h1>
+        <p>Signup for our email newspaper to get exclusive discounts, updates, and more</p>
+        <input type="email" placeholder="Enter your email">
+        <button>Subscribe →</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h2>Nostra</h2>
+        <p>The Standard chunk of Lorem ipsum used since the 1500s is reproduced below for those interest</p>
+        <div class="social">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook"></i>
+        </div>
+        <p>@ 2026 Nostra.com</p>
+    </footer>
+
+    <script src="coll.js"></script>
+</body>
+</html>
