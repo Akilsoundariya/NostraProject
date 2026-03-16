@@ -1,11 +1,11 @@
-var offerBar = document.querySelector(".offer-bar")
+var offerBar = document.querySelector(".offer_tag")
+var closeOffer = document.getElementById("closeOffer")
 
-document.getElementById("offer-close").addEventListener("click",
-
-function(){
-    offerBar.style.display="none"
+if(closeOffer){
+    closeOffer.addEventListener("click", function(){
+        offerBar.style.display="none"
+    })
 }
-)
 
 // ── 2. MOBILE SIDEBAR MENU ──────────────────
 const menuToggle = document.getElementById('menuToggle');
@@ -76,71 +76,61 @@ likeButtons.forEach(btn => {
 });
 
 
-// ── 5. COLLECTION FILTER ────────────────────
+// ── COLLECTION FILTER ────────────────────
 
 const filterChecks = document.querySelectorAll('.filter-check');
 const allProducts = document.querySelectorAll('.product');
 const noResults = document.getElementById('noResults');
 
-if (filterChecks.length > 0) {
+function applyFilters() {
 
-    function applyFilters() {
+    let visibleCount = 0;
 
-        const checkedCategories = [];
-        const checkedArrivals = [];
+    // collect checked values
+    const checkedValues = Array.from(filterChecks)
+        .filter(cb => cb.checked)
+        .map(cb => cb.dataset.category);
 
-        filterChecks.forEach(cb => {
-            if (!cb.checked) return;
-            const cat = cb.dataset.category;
-            if (cat === 'new' || cat === 'old') {
-                checkedArrivals.push(cat);
-            } else {
-                checkedCategories.push(cat);
-            }
-        });
+    allProducts.forEach(product => {
 
-        // if nothing is checked at all, show everything
-        const nothingChecked = checkedCategories.length === 0 && checkedArrivals.length === 0;
+        const category = product.dataset.category;
+        const arrival = product.dataset.arrival;
+        const color = product.dataset.color;
 
-        let visibleCount = 0;
+        const matchCategory =
+            checkedValues.filter(v => !["Black","White","Red","Blue","Yellow","new","old"].includes(v))
+            .length === 0 ||
+            checkedValues.includes(category);
 
-        allProducts.forEach(product => {
-            const productCategory = product.dataset.category;
-            const productArrival = product.dataset.arrival;
+        const matchColor =
+            checkedValues.filter(v => ["Black","White","Red","Blue","Yellow"].includes(v))
+            .length === 0 ||
+            checkedValues.includes(color);
 
-            if (nothingChecked) {
-                product.style.display = '';
-                visibleCount++;
-                return;
-            }
+        const matchArrival =
+            checkedValues.filter(v => ["new","old"].includes(v))
+            .length === 0 ||
+            checkedValues.includes(arrival);
 
-            // category match — if no category filters, any category passes
-            const categoryPass =
-                checkedCategories.length === 0 ||
-                checkedCategories.includes(productCategory);
-
-            // arrival match — if no arrival filters, any arrival passes
-            const arrivalPass =
-                checkedArrivals.length === 0 ||
-                checkedArrivals.includes(productArrival);
-
-            if (categoryPass && arrivalPass) {
-                product.style.display = '';
-                visibleCount++;
-            } else {
-                product.style.display = 'none';
-            }
-        });
-
-
-        if (noResults) {
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (matchCategory && matchColor && matchArrival) {
+            product.style.display = "";
+            visibleCount++;
+        } else {
+            product.style.display = "none";
         }
-    }
 
-    filterChecks.forEach(cb => cb.addEventListener('change', applyFilters));
+    });
+
+    if (noResults) {
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+    }
 }
 
+// listeners
+filterChecks.forEach(cb => cb.addEventListener("change", applyFilters));
+
+// run once on load
+applyFilters();
 
 // ── 6. SEARCH BAR ─────────────────────
 const searchInput = document.getElementById('searchInput');
